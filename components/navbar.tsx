@@ -1,6 +1,8 @@
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { ShoppingCart, Waves } from "lucide-react";
 import Link from "next/link";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
 
 export default function Navbar() {
   return (
@@ -9,8 +11,14 @@ export default function Navbar() {
         <Waves size={30} />
         ShopWave
       </Link>
-      <Link href="/shop">Shop</Link>
+      <form action="/search" className="flex gap-2">
+        <Input type="text" name="product" placeholder="Search" />
+        <Button type="submit" value="Search">
+          Search
+        </Button>
+      </form>
       <div className="flex gap-4 items-center">
+        <Link href="/shop">Shop</Link>
         <Link href="/cart">
           <ShoppingCart size={30} />
         </Link>

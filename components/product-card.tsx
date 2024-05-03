@@ -15,7 +15,7 @@ type Props = {
 
 export default function ProductCard({ name, description, price }: Props) {
   return (
-    <Card className="w-80">
+    <Card>
       <CardHeader>
         <CardTitle>{name}</CardTitle>
         <CardDescription>{description}</CardDescription>
