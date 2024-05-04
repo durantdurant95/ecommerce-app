@@ -1,30 +1,22 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "./ui/card";
+import Image from "next/image";
+import { Card, CardContent, CardFooter, CardTitle } from "./ui/card";
 
 type Props = {
   name: string;
-  description: string;
   price: string;
 };
 
-export default function ProductCard({ name, description, price }: Props) {
+export default function ProductCard({ name, price }: Props) {
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>{name}</CardTitle>
-        <CardDescription>{description}</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <p>Card Content</p>
+    <Card className="relative group overflow-hidden">
+      <CardContent className="relative aspect-square">
+        <Image fill src="/hat.jpg" alt={name} />
       </CardContent>
-      <CardFooter>
-        <p>{price}</p>
+      <CardFooter className="absolute bottom-0 transform translate-y-full group-hover:translate-y-0 transition-transform bg-white pt-4 w-full">
+        <div className="flex justify-between align-middle w-full">
+          <CardTitle>{name}</CardTitle>
+          <span className="font-semibold">$ {price}</span>
+        </div>
       </CardFooter>
     </Card>
   );

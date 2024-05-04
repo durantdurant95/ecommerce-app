@@ -11,7 +11,7 @@ export default function Navbar() {
         <Waves size={30} />
         ShopWave
       </Link>
-      <form action="/search" className="md:flex gap-4 hidden">
+      <form action="/products/search" className="md:flex gap-4 hidden">
         <Input type="text" name="product" placeholder="Search" />
         <Button type="submit" value="Search">
           Search

@@ -41,11 +41,11 @@ export default async function HomePage() {
             </div>
           </div>
           <Image
+            className="mx-auto overflow-hidden rounded-lg object-cover border"
             alt="Product Image"
-            className="mx-auto aspect-square overflow-hidden rounded-lg object-cover border"
-            height={600}
-            src="/hero-image.jpg"
-            width={600}
+            height={1000}
+            width={1000}
+            src="/hero.jpg"
           />
         </div>
       </section>
@@ -67,11 +67,7 @@ export default async function HomePage() {
               >
                 {/* TODO: get the Suspense size right */}
                 <Suspense fallback={<Skeleton className="h-full" />}>
-                  <ProductCard
-                    name={product.name}
-                    description={product.description}
-                    price={product.price}
-                  />
+                  <ProductCard name={product.name} price={product.price} />
                 </Suspense>
               </CarouselItem>
             ))}
@@ -95,11 +91,7 @@ export default async function HomePage() {
                 className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
                 key={product.id}
               >
-                <ProductCard
-                  name={product.name}
-                  description={product.description}
-                  price={product.price}
-                />
+                <ProductCard name={product.name} price={product.price} />
               </CarouselItem>
             ))}
           </CarouselContent>

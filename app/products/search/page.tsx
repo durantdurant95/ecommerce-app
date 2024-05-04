@@ -1,7 +1,5 @@
 import ProductCard from "@/components/product-card";
-import { Skeleton } from "@/components/ui/skeleton";
 import { getProductsByName } from "@/drizzle/db";
-import { Suspense } from "react";
 
 export default async function SearchPage({
   searchParams,
@@ -12,19 +10,17 @@ export default async function SearchPage({
 }) {
   const products = await getProductsByName(searchParams?.product);
   return (
-    <main>
-      <section className="flex gap-4">
-        {/* TODO: Get the Suspense size right */}
-        <Suspense fallback={<Skeleton className="h-20 w-20" />}>
+    <main className="flex gap-4 min-h-screen pl-60">
+      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8 flex-1 overflow-auto">
+        <div>
           {products.map((product) => (
             <ProductCard
               key={product.id}
               name={product.name}
-              description={product.description}
               price={product.price}
             />
           ))}
-        </Suspense>
+        </div>
       </section>
     </main>
   );
