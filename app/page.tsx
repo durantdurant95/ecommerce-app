@@ -32,10 +32,10 @@ export default async function HomePage() {
               </p>
             </div>
             <div className="flex space-x-4">
-              <Link href="/shop">
+              <Link href="/products">
                 <Button>Shop Now</Button>
               </Link>
-              <Link href="/search">
+              <Link href="/products/search">
                 <Button variant="outline">Search Items</Button>
               </Link>
             </div>
@@ -67,7 +67,11 @@ export default async function HomePage() {
               >
                 {/* TODO: get the Suspense size right */}
                 <Suspense fallback={<Skeleton className="h-full" />}>
-                  <ProductCard name={product.name} price={product.price} />
+                  <ProductCard
+                    name={product.name}
+                    price={product.price}
+                    imageUrl={product.imageUrl}
+                  />
                 </Suspense>
               </CarouselItem>
             ))}
@@ -91,7 +95,11 @@ export default async function HomePage() {
                 className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
                 key={product.id}
               >
-                <ProductCard name={product.name} price={product.price} />
+                <ProductCard
+                  name={product.name}
+                  price={product.price}
+                  imageUrl={product.imageUrl}
+                />
               </CarouselItem>
             ))}
           </CarouselContent>
