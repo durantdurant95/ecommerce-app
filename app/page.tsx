@@ -16,10 +16,10 @@ import { Suspense } from "react";
 export default async function HomePage() {
   const products = await getProducts();
   return (
-    <main className="p-4 flex flex-col gap-20">
+    <main className="max-w-[2000px] px-4 md:px-8 lg:px-12 mx-auto">
       {/* Hero section */}
-      <section className="w-full py-12">
-        <div className="container grid items-center gap-6 px-4 md:px-6 lg:grid-cols-2 lg:gap-10">
+      <section className="pt-14 pb-24">
+        <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-10">
           <div className="space-y-4">
             <div className="space-y-6 pb-6">
               <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl md:leading-tight">
@@ -50,10 +50,9 @@ export default async function HomePage() {
         </div>
       </section>
       {/* Carousel section */}
-      <section>
-        <h1 className="text-2xl font-bold pl-12 pb-1">Top Picks</h1>
+      <section className="pb-24">
+        <h1 className="text-2xl font-bold pb-2">Top Picks</h1>
         <Carousel
-          className="mx-12"
           opts={{
             align: "start",
             loop: true,

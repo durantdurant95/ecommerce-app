@@ -209,7 +209,7 @@ const CarouselPrevious = React.forwardRef<
         "absolute  h-8 w-8 rounded-sm",
         orientation === "horizontal"
           ? // ? "-left-12 top-1/2 -translate-y-1/2"
-            "-top-9 right-9"
+            "-top-10 right-10"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
@@ -239,7 +239,7 @@ const CarouselNext = React.forwardRef<
         "absolute h-8 w-8 rounded-sm",
         orientation === "horizontal"
           ? // ? "-right-12 top-1/2 -translate-y-1/2"
-            "-top-9 right-0"
+            "-top-10 right-0"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
