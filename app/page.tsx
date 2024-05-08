@@ -62,7 +62,7 @@ export default async function HomePage() {
           <CarouselContent>
             {products.map((product) => (
               <CarouselItem
-                className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+                className="md:basis-1/2 lg:basis-1/3"
                 key={product.id}
               >
                 {/* TODO: get the Suspense size right */}
@@ -73,33 +73,6 @@ export default async function HomePage() {
                     imageUrl={product.imageUrl}
                   />
                 </Suspense>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
-      </section>
-      <section>
-        <h1 className="text-2xl font-bold pl-12 pb-1">New Arrivals</h1>
-        <Carousel
-          className="mx-12"
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-        >
-          <CarouselContent>
-            {products.map((product) => (
-              <CarouselItem
-                className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
-                key={product.id}
-              >
-                <ProductCard
-                  name={product.name}
-                  price={product.price}
-                  imageUrl={product.imageUrl}
-                />
               </CarouselItem>
             ))}
           </CarouselContent>
