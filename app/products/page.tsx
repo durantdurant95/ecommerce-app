@@ -5,9 +5,9 @@ export default async function ProductsPage() {
   const products = await getProducts();
 
   return (
-    <main className="pl-60 pr-1 md:pr-4 lg:pr-8">
-      <section id="Clothing&Accessories" className="scroll-mt-36">
-        <h1>Clothing & Accessories</h1>
+    <main className="pl-80 pr-1 md:pr-4 lg:pr-8 gap-32 flex flex-col pt-2">
+      <section id="Clothing&Accessories" className="scroll-mt-28">
+        <h1 className="text-3xl py-2 font-semibold">Clothing & Accessories</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 flex-1 overflow-auto">
           {products
             .filter((product) => product.categoryId === 1)
@@ -21,8 +21,9 @@ export default async function ProductsPage() {
             ))}
         </div>
       </section>
-      <section id="Gadgets&Gizmos" className="scroll-mt-36">
-        <h1>Gadgets & Gizmos</h1>
+      <section id="Gadgets&Gizmos" className="scroll-mt-28">
+        <h1 className="text-3xl py-2 font-semibold">Gadgets & Gizmos</h1>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-8 flex-1 overflow-auto">
           {products
             .filter((product) => product.categoryId === 2)

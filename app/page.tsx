@@ -16,16 +16,16 @@ import { Suspense } from "react";
 export default async function HomePage() {
   const products = await getProducts();
   return (
-    <main className="max-w-[2000px] px-4 md:px-8 lg:px-12 mx-auto">
+    <main className="mx-auto max-w-[2000px] px-4 md:px-8 lg:px-12">
       {/* Hero section */}
-      <section className="pt-14 pb-24">
+      <section className="pb-24 pt-14">
         <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-10">
           <div className="space-y-4">
             <div className="space-y-6 pb-6">
               <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl md:leading-tight">
                 ShopWave: Because who needs savings anyway?
               </h1>
-              <p className="max-w-[600px] text-gray-700 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+              <p className="max-w-[600px] text-gray-700 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Prepare to lose track of time and money. Enter with caution...
                 and a credit card. You will leave with everything but your
                 self-control!
@@ -33,15 +33,12 @@ export default async function HomePage() {
             </div>
             <div className="flex space-x-4">
               <Link href="/products">
-                <Button>Shop Now</Button>
-              </Link>
-              <Link href="/products/search">
-                <Button variant="outline">Search Items</Button>
+                <Button className="p-6">Shop Now</Button>
               </Link>
             </div>
           </div>
           <Image
-            className="mx-auto overflow-hidden rounded-lg object-cover border"
+            className="mx-auto overflow-hidden rounded-lg border object-cover"
             alt="Product Image"
             height={1000}
             width={1000}
@@ -51,7 +48,7 @@ export default async function HomePage() {
       </section>
       {/* Carousel section */}
       <section className="pb-24">
-        <h1 className="text-2xl font-bold pb-2">Top Picks</h1>
+        <h1 className="pb-2 text-2xl font-bold">Top Picks</h1>
         <Carousel
           opts={{
             align: "start",

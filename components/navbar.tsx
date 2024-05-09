@@ -7,7 +7,7 @@ import { Input } from "./ui/input";
 export default function Navbar() {
   return (
     <nav className="text-2xl tracking-tighter font-medium w-full shadow sticky top-0 z-50 bg-white">
-      <div className="flex justify-between max-w-[2000px] mx-auto items-center p-6 md:p-8  lg:p-12">
+      <div className="flex justify-between max-w-[2000px] mx-auto items-center p-6 md:p-8">
         <Link href="/" className="gap-1 flex items-center">
           <Waves size={30} />
           ShopWave
