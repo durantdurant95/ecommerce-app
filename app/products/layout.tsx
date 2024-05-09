@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main>
+    <main className="mx-auto max-w-[2000px]">
       <Sidebar />
       {children}
     </main>
