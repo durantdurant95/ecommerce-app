@@ -10,19 +10,28 @@ export default async function SearchPage({
 }) {
   const products = await getProductsByName(searchParams?.product);
   return (
-    <main className="flex gap-4 min-h-screen pl-60">
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8 flex-1 overflow-auto">
-        <div>
-          {products.map((product) => (
-            <ProductCard
-              key={product.id}
-              name={product.name}
-              price={product.price}
-              imageUrl={product.imageUrl}
-            />
-          ))}
-        </div>
-      </section>
+    <main className="pl-80 pr-4 pt-8 md:pr-8">
+      {searchParams?.product === "" || searchParams?.product === undefined ? (
+        <h1 className="pt-4 text-2xl font-medium">
+          Start searching for products on the search bar above!
+        </h1>
+      ) : (
+        <>
+          <h1 className="py-2 text-3xl font-semibold">
+            Search results for: &quot;{searchParams?.product}&quot;
+          </h1>
+          <section className="grid flex-1 grid-cols-1 gap-8 overflow-auto sm:grid-cols-2 md:grid-cols-3">
+            {products.map((product) => (
+              <ProductCard
+                key={product.id}
+                name={product.name}
+                price={product.price}
+                imageUrl={product.imageUrl}
+              />
+            ))}
+          </section>
+        </>
+      )}
     </main>
   );
 }

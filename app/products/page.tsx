@@ -1,14 +1,19 @@
 import ProductCard from "@/components/product-card";
-import { getProducts } from "@/drizzle/db";
+import { getProductsByName } from "@/drizzle/db";
 
-export default async function ProductsPage() {
-  const products = await getProducts();
-
+export default async function ProductsPage({
+  searchParams,
+}: {
+  searchParams?: {
+    product?: string;
+  };
+}) {
+  const products = await getProductsByName(searchParams?.product);
   return (
-    <main className="pl-80 pr-1 md:pr-4 lg:pr-8 gap-32 flex flex-col pt-2">
+    <main className="flex flex-col gap-32 pl-80 pr-1 pt-2 md:pr-4 lg:pr-8">
       <section id="Clothing&Accessories" className="scroll-mt-28">
-        <h1 className="text-3xl py-2 font-semibold">Clothing & Accessories</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 flex-1 overflow-auto">
+        <h1 className="py-2 text-3xl font-semibold">Clothing & Accessories</h1>
+        <div className="grid flex-1 grid-cols-1 gap-8 overflow-auto sm:grid-cols-2 md:grid-cols-3">
           {products
             .filter((product) => product.categoryId === 1)
             .map((product) => (
@@ -22,9 +27,9 @@ export default async function ProductsPage() {
         </div>
       </section>
       <section id="Gadgets&Gizmos" className="scroll-mt-28">
-        <h1 className="text-3xl py-2 font-semibold">Gadgets & Gizmos</h1>
+        <h1 className="py-2 text-3xl font-semibold">Gadgets & Gizmos</h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-8 flex-1 overflow-auto">
+        <div className="grid flex-1 grid-cols-1 gap-8  overflow-auto sm:grid-cols-2 md:grid-cols-3">
           {products
             .filter((product) => product.categoryId === 2)
             .map((product) => (
@@ -38,8 +43,8 @@ export default async function ProductsPage() {
         </div>
       </section>
       <section id="Home&Living" className="scroll-mt-36">
-        <h1>Home & Living</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-8 flex-1 overflow-auto">
+        <h1 className="py-2 text-3xl font-semibold">Home & Living</h1>
+        <div className="grid flex-1 grid-cols-1 gap-8  overflow-auto sm:grid-cols-2 md:grid-cols-3">
           {products
             .filter((product) => product.categoryId === 3)
             .map((product) => (
@@ -53,8 +58,8 @@ export default async function ProductsPage() {
         </div>
       </section>
       <section id="Books&Beyond" className="scroll-mt-36">
-        <h1>Books & Beyond</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-8 flex-1 overflow-auto">
+        <h1 className="py-2 text-3xl font-semibold">Books & Beyond</h1>
+        <div className="grid flex-1 grid-cols-1 gap-8  overflow-auto sm:grid-cols-2 md:grid-cols-3">
           {products
             .filter((product) => product.categoryId === 4)
             .map((product) => (
@@ -68,8 +73,8 @@ export default async function ProductsPage() {
         </div>
       </section>
       <section id="Beauty&Bliss" className="scroll-mt-36">
-        <h1>Beauty & Bliss</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-8 flex-1 overflow-auto">
+        <h1 className="py-2 text-3xl font-semibold">Beauty & Bliss</h1>
+        <div className="grid flex-1 grid-cols-1 gap-8  overflow-auto sm:grid-cols-2 md:grid-cols-3">
           {products
             .filter((product) => product.categoryId === 5)
             .map((product) => (
@@ -83,8 +88,8 @@ export default async function ProductsPage() {
         </div>
       </section>
       <section id="OutdoorEssentials" className="scroll-mt-36">
-        <h1>Outdoor Essentials</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-8 flex-1 overflow-auto">
+        <h1 className="py-2 text-3xl font-semibold">Outdoor Essentials</h1>
+        <div className="grid flex-1 grid-cols-1 gap-8  overflow-auto sm:grid-cols-2 md:grid-cols-3">
           {products
             .filter((product) => product.categoryId === 6)
             .map((product) => (
@@ -98,8 +103,8 @@ export default async function ProductsPage() {
         </div>
       </section>
       <section id="PetParadise" className="scroll-mt-36">
-        <h1>Pet Paradise</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-8 flex-1 overflow-auto">
+        <h1 className="py-2 text-3xl font-semibold">Pet Paradise</h1>
+        <div className="grid flex-1 grid-cols-1 gap-8  overflow-auto sm:grid-cols-2 md:grid-cols-3">
           {products
             .filter((product) => product.categoryId === 7)
             .map((product) => (

@@ -1,24 +1,18 @@
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { ShoppingCart, Waves } from "lucide-react";
 import Link from "next/link";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
+import SearchForm from "./search-form";
 
 export default function Navbar() {
   return (
-    <nav className="text-2xl tracking-tighter font-medium w-full shadow sticky top-0 z-50 bg-white">
-      <div className="flex justify-between max-w-[2000px] mx-auto items-center p-6 md:p-8">
-        <Link href="/" className="gap-1 flex items-center">
+    <nav className="sticky top-0 z-50 w-full bg-white text-2xl font-medium tracking-tighter shadow">
+      <div className="mx-auto flex max-w-[2000px] items-center justify-between p-6 md:p-8">
+        <Link href="/" className="flex items-center gap-1">
           <Waves size={30} />
           ShopWave
         </Link>
-        <form action="/products/search" className="md:flex gap-4 hidden">
-          <Input type="text" name="product" placeholder="Search" />
-          <Button type="submit" value="Search">
-            Search
-          </Button>
-        </form>
-        <div className="flex gap-8 items-center">
+        <SearchForm />
+        <div className="flex items-center gap-8">
           <Link href="/cart">
             <ShoppingCart size={30} />
           </Link>

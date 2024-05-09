@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Button } from "./ui/button";
 import { Card, CardContent, CardFooter, CardTitle } from "./ui/card";
 
 type Props = {
@@ -9,12 +10,15 @@ type Props = {
 
 export default function ProductCard({ name, price, imageUrl }: Props) {
   return (
-    <Card className="relative group overflow-hidden">
+    <Card className="group relative overflow-hidden">
+      <Button className="absolute right-2 top-2 z-10 opacity-0 group-hover:opacity-100">
+        Buy
+      </Button>
       <CardContent className="relative aspect-square">
         <Image fill src={imageUrl} alt={name} />
       </CardContent>
-      <CardFooter className="absolute bottom-0 transform translate-y-full group-hover:translate-y-0 transition-transform bg-white pt-4 w-full">
-        <div className="flex justify-between align-middle w-full">
+      <CardFooter className="absolute bottom-0 w-full translate-y-full transform bg-accent pt-4 transition-transform group-hover:translate-y-0">
+        <div className="flex w-full justify-between align-middle">
           <CardTitle>{name}</CardTitle>
           <span className="font-semibold">$ {price}</span>
         </div>
