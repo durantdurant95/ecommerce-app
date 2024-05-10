@@ -78,7 +78,7 @@ export default function AboutPage() {
               Here at ShopWave, our &quot;team&quot; consists of just one
               over-caffeinated, sleep-deprived individual (yes, that&apos;s
               me!). Committed to delivering the most epic shopping experience
-              this side of the internet, I wear all the hats: CEO, customer
+              this side of the internet. I wear all the hats here: CEO, customer
               service rep, and resident meme curator. So, buckle up, because
               you&apos;re in for a wild ride with this one-man show!
             </p>
