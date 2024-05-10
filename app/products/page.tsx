@@ -10,7 +10,7 @@ export default async function ProductsPage({
 }) {
   const products = await getProductsByName(searchParams?.product);
   return (
-    <div className="flex flex-col gap-32 px-1 pt-2 md:pl-80 md:pr-4 lg:pr-8">
+    <div className="flex flex-col gap-32 px-1 pt-2 md:pl-80 md:pr-8 lg:pr-12">
       <section id="Clothing&Accessories" className="scroll-mt-28">
         <h1 className="py-2 text-3xl font-semibold">Clothing & Accessories</h1>
         <div className="grid flex-1 grid-cols-1 gap-8 overflow-auto sm:grid-cols-2 md:grid-cols-3">

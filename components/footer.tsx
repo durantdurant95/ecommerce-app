@@ -3,21 +3,22 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="z-50 border-t border-t-primary bg-white py-8">
-      <div className="container mx-auto flex flex-col justify-between gap-10 px-4 sm:px-6 md:flex-row lg:px-8">
+    <footer className="shadow-footer sticky z-50 bg-white py-8">
+      <div className="mx-auto flex max-w-[2000px] flex-col justify-between gap-10 px-4 sm:px-6 md:flex-row lg:px-12">
         <div className="flex flex-col items-start md:w-1/3">
           <div className="mb-4 flex items-center">
             <Waves size={30} />
             <span className="ml-2 text-lg font-semibold">ShopWave</span>
           </div>
           <p className="text-sm">
-            Acme Inc is a leading ecommerce company providing high-quality
-            products to customers worldwide.
+            Keep scrolling, there&apos;s nothing to see here except an empty
+            void where your wallet used to be. But hey, at least you&apos;ve got
+            cool stuff!
           </p>
         </div>
         <div>
           <h4 className="mb-4 font-semibold">Quick Links</h4>
-          <ul className="space-y-2">
+          <ul className="space-y-4">
             <li>
               <Link href="/">Home</Link>
             </li>

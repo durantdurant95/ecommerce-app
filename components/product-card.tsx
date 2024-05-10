@@ -10,12 +10,17 @@ type Props = {
 
 export default function ProductCard({ name, price, imageUrl }: Props) {
   return (
-    <Card className="group relative overflow-hidden">
+    <Card className="group relative overflow-hidden transition-all">
       <Button className="absolute right-2 top-2 z-10 opacity-0 group-hover:opacity-100">
-        Buy
+        Buy Now
       </Button>
       <CardContent className="relative aspect-square">
-        <Image fill src={imageUrl} alt={name} />
+        <Image
+          fill
+          src={imageUrl}
+          alt={name}
+          className="group-hover:opacity-50"
+        />
       </CardContent>
       <CardFooter className="absolute bottom-0 w-full translate-y-full transform bg-accent pt-4 transition-transform group-hover:translate-y-0">
         <div className="flex w-full justify-between align-middle">

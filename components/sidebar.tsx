@@ -11,7 +11,7 @@ import Link from "next/link";
 
 export default function Sidebar() {
   return (
-    <div className="fixed top-32 hidden w-80 flex-col gap-8 pl-8 text-lg font-medium md:flex">
+    <div className="fixed top-32 hidden w-80 flex-col gap-8 pl-8 text-lg font-medium md:flex lg:pl-12">
       <h2 className="text-3xl font-semibold">Categories</h2>
       <Link
         href="/products#Clothing&Accessories"
