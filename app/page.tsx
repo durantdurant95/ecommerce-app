@@ -35,7 +35,7 @@ export default async function HomePage() {
               <Link href="/products">
                 <Button className="p-6">Shop Now</Button>
               </Link>
-              <Link href="/products/search" className="hidden md:visible">
+              <Link href="/products/search" className="hidden md:flex">
                 <Button variant="outline" className="p-6">
                   Search Products
                 </Button>

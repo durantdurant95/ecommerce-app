@@ -10,7 +10,7 @@ export default async function SearchPage({
 }) {
   const products = await getProductsByName(searchParams?.product);
   return (
-    <main className="pl-80 pr-4 pt-8 md:pr-8">
+    <main className="min-h-screen pl-80 pr-4 pt-8 md:pr-8 lg:pr-12">
       {searchParams?.product === "" || searchParams?.product === undefined ? (
         <h1 className="pt-4 text-2xl font-medium">
           Start searching for products on the search bar above!
