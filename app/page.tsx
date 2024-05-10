@@ -16,7 +16,7 @@ import { Suspense } from "react";
 export default async function HomePage() {
   const products = await getProducts();
   return (
-    <main className="mx-auto max-w-[2000px] px-4 md:px-8 lg:px-12">
+    <main className="container px-4 md:px-8 lg:px-12">
       {/* Hero section */}
       <section className="pb-24 pt-14">
         <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-10">
