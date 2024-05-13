@@ -1,27 +1,21 @@
 import ProductCard from "@/components/product-card";
-import { getProductsByName } from "@/drizzle/db";
+import { getAllProducts } from "@/db/queries";
 
-export default async function ProductsPage({
-  searchParams,
-}: {
-  searchParams?: {
-    product?: string;
-  };
-}) {
-  const products = await getProductsByName(searchParams?.product);
+export default async function ProductsPage() {
+  const products = await getAllProducts();
   return (
-    <div className="flex flex-col gap-32 px-1 pt-2 md:pl-80 md:pr-8 lg:pr-12">
+    <div className="flex flex-col gap-32 px-1 py-2 md:pl-80 lg:pr-4">
       <section id="Clothing&Accessories" className="scroll-mt-28">
         <h1 className="py-2 text-3xl font-semibold">Clothing & Accessories</h1>
         <div className="grid flex-1 grid-cols-1 gap-8 overflow-auto sm:grid-cols-2 md:grid-cols-3">
           {products
-            .filter((product) => product.categoryId === 1)
+            .filter((product) => product.category_id === 1)
             .map((product) => (
               <ProductCard
                 key={product.id}
                 name={product.name}
                 price={product.price}
-                imageUrl={product.imageUrl}
+                imageUrl={product.image_url}
               />
             ))}
         </div>
@@ -31,13 +25,13 @@ export default async function ProductsPage({
 
         <div className="grid flex-1 grid-cols-1 gap-8  overflow-auto sm:grid-cols-2 md:grid-cols-3">
           {products
-            .filter((product) => product.categoryId === 2)
+            .filter((product) => product.category_id === 2)
             .map((product) => (
               <ProductCard
                 key={product.id}
                 name={product.name}
                 price={product.price}
-                imageUrl={product.imageUrl}
+                imageUrl={product.image_url}
               />
             ))}
         </div>
@@ -46,13 +40,13 @@ export default async function ProductsPage({
         <h1 className="py-2 text-3xl font-semibold">Home & Living</h1>
         <div className="grid flex-1 grid-cols-1 gap-8  overflow-auto sm:grid-cols-2 md:grid-cols-3">
           {products
-            .filter((product) => product.categoryId === 3)
+            .filter((product) => product.category_id === 3)
             .map((product) => (
               <ProductCard
                 key={product.id}
                 name={product.name}
                 price={product.price}
-                imageUrl={product.imageUrl}
+                imageUrl={product.image_url}
               />
             ))}
         </div>
@@ -61,13 +55,13 @@ export default async function ProductsPage({
         <h1 className="py-2 text-3xl font-semibold">Books & Beyond</h1>
         <div className="grid flex-1 grid-cols-1 gap-8  overflow-auto sm:grid-cols-2 md:grid-cols-3">
           {products
-            .filter((product) => product.categoryId === 4)
+            .filter((product) => product.category_id === 4)
             .map((product) => (
               <ProductCard
                 key={product.id}
                 name={product.name}
                 price={product.price}
-                imageUrl={product.imageUrl}
+                imageUrl={product.image_url}
               />
             ))}
         </div>
@@ -76,13 +70,13 @@ export default async function ProductsPage({
         <h1 className="py-2 text-3xl font-semibold">Beauty & Bliss</h1>
         <div className="grid flex-1 grid-cols-1 gap-8  overflow-auto sm:grid-cols-2 md:grid-cols-3">
           {products
-            .filter((product) => product.categoryId === 5)
+            .filter((product) => product.category_id === 5)
             .map((product) => (
               <ProductCard
                 key={product.id}
                 name={product.name}
                 price={product.price}
-                imageUrl={product.imageUrl}
+                imageUrl={product.image_url}
               />
             ))}
         </div>
@@ -91,13 +85,13 @@ export default async function ProductsPage({
         <h1 className="py-2 text-3xl font-semibold">Outdoor Essentials</h1>
         <div className="grid flex-1 grid-cols-1 gap-8  overflow-auto sm:grid-cols-2 md:grid-cols-3">
           {products
-            .filter((product) => product.categoryId === 6)
+            .filter((product) => product.category_id === 6)
             .map((product) => (
               <ProductCard
                 key={product.id}
                 name={product.name}
                 price={product.price}
-                imageUrl={product.imageUrl}
+                imageUrl={product.image_url}
               />
             ))}
         </div>
@@ -106,13 +100,13 @@ export default async function ProductsPage({
         <h1 className="py-2 text-3xl font-semibold">Pet Paradise</h1>
         <div className="grid flex-1 grid-cols-1 gap-8  overflow-auto sm:grid-cols-2 md:grid-cols-3">
           {products
-            .filter((product) => product.categoryId === 7)
+            .filter((product) => product.category_id === 7)
             .map((product) => (
               <ProductCard
                 key={product.id}
                 name={product.name}
                 price={product.price}
-                imageUrl={product.imageUrl}
+                imageUrl={product.image_url}
               />
             ))}
         </div>

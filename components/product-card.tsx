@@ -4,7 +4,7 @@ import { Card, CardContent, CardFooter, CardTitle } from "./ui/card";
 
 type Props = {
   name: string;
-  price: string;
+  price: number;
   imageUrl: string;
 };
 

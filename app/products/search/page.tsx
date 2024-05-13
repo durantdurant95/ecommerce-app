@@ -1,5 +1,5 @@
 import ProductCard from "@/components/product-card";
-import { getProductsByName } from "@/drizzle/db";
+import { getProductsByName } from "@/db/queries";
 
 export default async function SearchPage({
   searchParams,
@@ -10,7 +10,7 @@ export default async function SearchPage({
 }) {
   const products = await getProductsByName(searchParams?.product);
   return (
-    <main className="min-h-screen pl-80 pr-4 pt-8 md:pr-8 lg:pr-12">
+    <main className="grow py-8 md:pl-80 lg:pr-4">
       {searchParams?.product === "" || searchParams?.product === undefined ? (
         <h1 className="pt-4 text-2xl font-medium">
           Start searching for products on the search bar above!
@@ -26,7 +26,7 @@ export default async function SearchPage({
                 key={product.id}
                 name={product.name}
                 price={product.price}
-                imageUrl={product.imageUrl}
+                imageUrl={product.image_url}
               />
             ))}
           </section>

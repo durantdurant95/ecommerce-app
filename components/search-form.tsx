@@ -5,7 +5,7 @@ export default function SearchForm() {
   return (
     <form
       action="/products/search"
-      className="hidden gap-4 tracking-normal md:flex"
+      className="hidden gap-4 tracking-normal lg:flex"
     >
       <Input
         type="text"

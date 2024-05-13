@@ -1,6 +1,6 @@
-import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { ShoppingCart, Waves } from "lucide-react";
 import Link from "next/link";
+import AuthButton from "./auth-button";
 import SearchForm from "./search-form";
 
 export default function Navbar() {
@@ -16,12 +16,7 @@ export default function Navbar() {
           <Link href="/cart">
             <ShoppingCart size={30} />
           </Link>
-          <SignedOut>
-            <SignInButton />
-          </SignedOut>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
+          <AuthButton />
         </div>
       </div>
     </nav>

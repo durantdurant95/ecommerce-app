@@ -8,13 +8,13 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Skeleton } from "@/components/ui/skeleton";
-import { getProducts } from "@/drizzle/db";
+import { getAllProducts } from "@/db/queries";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 
 export default async function HomePage() {
-  const products = await getProducts();
+  const products = await getAllProducts();
   return (
     <main className="container px-4 md:px-8 lg:px-12">
       {/* Hero section */}
@@ -35,7 +35,7 @@ export default async function HomePage() {
               <Link href="/products">
                 <Button className="p-6">Shop Now</Button>
               </Link>
-              <Link href="/products/search" className="hidden md:flex">
+              <Link href="/products/search" className="hidden lg:flex">
                 <Button variant="outline" className="p-6">
                   Search Products
                 </Button>
@@ -71,7 +71,7 @@ export default async function HomePage() {
                   <ProductCard
                     name={product.name}
                     price={product.price}
-                    imageUrl={product.imageUrl}
+                    imageUrl={product.image_url}
                   />
                 </Suspense>
               </CarouselItem>

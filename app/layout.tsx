@@ -1,6 +1,6 @@
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
-import { ClerkProvider } from "@clerk/nextjs";
+import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
@@ -18,14 +18,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-      <html lang="en" className="scroll-smooth">
-        <body className={montserrat.className}>
-          <Navbar />
-          {children}
-          <Footer />
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang="en" className="scroll-smooth">
+      <body className={cn(montserrat.className, "flex min-h-screen flex-col")}>
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
+    </html>
   );
 }
