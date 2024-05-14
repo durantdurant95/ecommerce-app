@@ -1,8 +1,8 @@
 import {
   Bone,
   Brush,
+  HammerIcon,
   Lamp,
-  LibraryBig,
   PocketKnife,
   Shirt,
   TentTree,
@@ -28,9 +28,9 @@ export default function Sidebar() {
         <Lamp />
         Home & Living
       </Link>
-      <Link href="/products#Books&Beyond" className="flex items-center gap-2">
-        <LibraryBig />
-        Books & Beyond
+      <Link href="/products#Tools&Hardware" className="flex items-center gap-2">
+        <HammerIcon />
+        Tools & Hardware
       </Link>
       <Link href="/products#Beauty&Bliss" className="flex items-center gap-2">
         <Brush />

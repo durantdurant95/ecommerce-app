@@ -51,8 +51,8 @@ export default async function ProductsPage() {
             ))}
         </div>
       </section>
-      <section id="Books&Beyond" className="scroll-mt-36">
-        <h1 className="py-2 text-3xl font-semibold">Books & Beyond</h1>
+      <section id="Tools&Hardware" className="scroll-mt-36">
+        <h1 className="py-2 text-3xl font-semibold">Tools & Hardware</h1>
         <div className="grid flex-1 grid-cols-1 gap-8  overflow-auto sm:grid-cols-2 md:grid-cols-3">
           {products
             .filter((product) => product.category_id === 4)
