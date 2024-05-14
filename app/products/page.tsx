@@ -5,7 +5,7 @@ export default async function ProductsPage() {
   const products = await getAllProducts();
   return (
     <div className="flex flex-col gap-32 px-1 py-2 md:pl-80 lg:pr-4">
-      <section id="Clothing&Accessories" className="scroll-mt-28">
+      <section id="Clothing&Accessories" className="scroll-mt-36">
         <h1 className="py-2 text-3xl font-semibold">Clothing & Accessories</h1>
         <div className="grid flex-1 grid-cols-1 gap-8 overflow-auto sm:grid-cols-2 md:grid-cols-3">
           {products
@@ -20,7 +20,7 @@ export default async function ProductsPage() {
             ))}
         </div>
       </section>
-      <section id="Gadgets&Gizmos" className="scroll-mt-28">
+      <section id="Gadgets&Gizmos" className="scroll-mt-36">
         <h1 className="py-2 text-3xl font-semibold">Gadgets & Gizmos</h1>
 
         <div className="grid flex-1 grid-cols-1 gap-8  overflow-auto sm:grid-cols-2 md:grid-cols-3">
