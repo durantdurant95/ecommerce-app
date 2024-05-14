@@ -8,13 +8,13 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Skeleton } from "@/components/ui/skeleton";
-import { getAllProducts } from "@/db/queries";
+import { getRandomProducts } from "@/db/queries";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 
 export default async function HomePage() {
-  const products = await getAllProducts();
+  const products = await getRandomProducts();
   return (
     <main className="container px-4 md:px-8 lg:px-12">
       {/* Hero section */}

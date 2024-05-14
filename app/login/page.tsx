@@ -24,7 +24,7 @@ export default function Login({
       return redirect("/login?message=Could not authenticate user");
     }
 
-    return redirect("/protected");
+    return redirect("/");
   };
 
   const signUp = async (formData: FormData) => {
@@ -55,7 +55,7 @@ export default function Login({
       <div className="flex w-full flex-1 flex-col justify-center gap-2 px-8 sm:max-w-md">
         <form className="flex w-full flex-1 flex-col justify-center gap-2 text-foreground animate-in">
           <label className="text-md" htmlFor="email">
-            Email
+            Correo
           </label>
           <input
             className="mb-6 rounded-md border bg-inherit px-4 py-2"
