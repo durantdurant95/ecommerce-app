@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="container mx-0">
+    <main className="container mx-0 grow">
       <Sidebar />
       {children}
     </main>
