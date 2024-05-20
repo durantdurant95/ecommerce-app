@@ -8,11 +8,11 @@ import { Skeleton } from "./ui/skeleton";
 export default function SearchForm() {
   const searchParams = useSearchParams();
   return (
-    <form
-      action="/products/search"
-      className="hidden gap-4 tracking-normal lg:flex"
-    >
-      <Suspense fallback={<Skeleton className="h-10 w-80" />}>
+    <Suspense fallback={<Skeleton className="h-10 w-80" />}>
+      <form
+        action="/products/search"
+        className="hidden gap-4 tracking-normal lg:flex"
+      >
         <Input
           className="w-80"
           type="text"
@@ -20,8 +20,8 @@ export default function SearchForm() {
           placeholder="Search for cool stuff!"
           defaultValue={searchParams.get("product") ?? ""}
         />
-      </Suspense>
-      <Button type="submit">Search</Button>
-    </form>
+        <Button type="submit">Search</Button>
+      </form>
+    </Suspense>
   );
 }
