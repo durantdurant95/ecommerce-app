@@ -1,7 +1,9 @@
 import { ShoppingCart, Waves } from "lucide-react";
 import Link from "next/link";
+import { Suspense } from "react";
 import AuthButton from "./auth-button";
 import SearchForm from "./search-form";
+import { Skeleton } from "./ui/skeleton";
 
 export default function Navbar() {
   return (
@@ -11,7 +13,9 @@ export default function Navbar() {
           <Waves size={30} />
           ShopWave
         </Link>
-        <SearchForm />
+        <Suspense fallback={<Skeleton className="h-10 w-80" />}>
+          <SearchForm />
+        </Suspense>
         <div className="flex items-center gap-8">
           <Link href="/cart">
             <ShoppingCart size={30} />
