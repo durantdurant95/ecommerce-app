@@ -1,12 +1,4 @@
-import {
-  Bone,
-  Brush,
-  HammerIcon,
-  Lamp,
-  PocketKnife,
-  Shirt,
-  TentTree,
-} from "lucide-react";
+import { Brush, HammerIcon, Lamp, PocketKnife, Shirt } from "lucide-react";
 import Link from "next/link";
 
 export default function Sidebar() {
@@ -35,17 +27,6 @@ export default function Sidebar() {
       <Link href="/products#Beauty&Bliss" className="flex items-center gap-2">
         <Brush />
         Beauty & Bliss
-      </Link>
-      <Link
-        href="/products#OutdoorEssentials"
-        className="flex items-center gap-2"
-      >
-        <TentTree />
-        Outdoor Essentials
-      </Link>
-      <Link href="/products#PetParadise" className="flex items-center gap-2">
-        <Bone />
-        Pet Paradise
       </Link>
     </div>
   );

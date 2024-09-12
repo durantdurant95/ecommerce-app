@@ -66,41 +66,11 @@ export default async function ProductsPage() {
             ))}
         </div>
       </section>
-      <section id="Beauty&Bliss" className="scroll-mt-36">
+      <section id="Beauty&Bliss" className="mb-20 scroll-mt-36">
         <h1 className="py-2 text-3xl font-semibold">Beauty & Bliss</h1>
         <div className="grid flex-1 grid-cols-1 gap-8  overflow-auto sm:grid-cols-2 lg:grid-cols-3">
           {products
             .filter((product) => product.category_id === 5)
-            .map((product) => (
-              <ProductCard
-                key={product.id}
-                name={product.name}
-                price={product.price}
-                imageUrl={product.image_url}
-              />
-            ))}
-        </div>
-      </section>
-      <section id="OutdoorEssentials" className="scroll-mt-36">
-        <h1 className="py-2 text-3xl font-semibold">Outdoor Essentials</h1>
-        <div className="grid flex-1 grid-cols-1 gap-8  overflow-auto sm:grid-cols-2 lg:grid-cols-3">
-          {products
-            .filter((product) => product.category_id === 6)
-            .map((product) => (
-              <ProductCard
-                key={product.id}
-                name={product.name}
-                price={product.price}
-                imageUrl={product.image_url}
-              />
-            ))}
-        </div>
-      </section>
-      <section id="PetParadise" className="scroll-mt-36">
-        <h1 className="py-2 text-3xl font-semibold">Pet Paradise</h1>
-        <div className="grid flex-1 grid-cols-1 gap-8  overflow-auto sm:grid-cols-2 lg:grid-cols-3">
-          {products
-            .filter((product) => product.category_id === 7)
             .map((product) => (
               <ProductCard
                 key={product.id}

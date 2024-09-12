@@ -40,8 +40,6 @@ export default function Footer() {
             <Link href="/products#Home&Living">Home & Living</Link>
             <Link href="/products#Tools&Hardware">Tools & Hardware</Link>
             <Link href="/products#Beauty&Bliss">Beauty & Bliss</Link>
-            <Link href="/products#OutdoorEssentials">Outdoor Essentials</Link>
-            <Link href="/products#PetParadise">Pet Paradise</Link>
           </ul>
         </div>
       </div>
