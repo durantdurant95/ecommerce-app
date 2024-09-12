@@ -19,6 +19,7 @@ export default function ProductCard({ name, price, imageUrl }: Props) {
           fill
           src={imageUrl}
           alt={name}
+          // onLoadedData={}
           className="transition-opacity group-hover:opacity-80"
         />
       </CardContent>
