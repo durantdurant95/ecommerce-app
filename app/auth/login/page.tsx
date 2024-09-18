@@ -119,41 +119,16 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { createClient } from "@/utils/supabase/server";
 import { Github } from "lucide-react";
 import Link from "next/link";
-import { redirect } from "next/navigation";
+import { login } from "../actions";
 
-export default async function SignInPage({
+export default async function LoginPage({
   searchParams,
 }: {
   searchParams: { message: string };
 }) {
-  const supabase = createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  const signIn = async (formData: FormData) => {
-    "use server";
-    const supabase = createClient();
-
-    const email = formData.get("email") as string;
-    const password = formData.get("password") as string;
-
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-
-    if (error) {
-      return redirect("/login?message=Could not authenticate user");
-    }
-
-    return redirect("/");
-  };
-
-  return !user ? (
+  return (
     <div className="flex grow items-center justify-center">
       <div className="w-full max-w-md space-y-8 rounded-xl p-8 md:border">
         <div className="text-center">
@@ -193,11 +168,11 @@ export default async function SignInPage({
           </div>
 
           <div>
-            <Button formAction={signIn} className="w-full">
+            <Button formAction={login} className="w-full">
               Sign In
             </Button>
             {searchParams?.message && (
-              <p className="mt-4 bg-foreground/10 p-4 text-center text-foreground">
+              <p className="mt-4 p-4 text-center text-foreground">
                 {searchParams.message}
               </p>
             )}
@@ -244,7 +219,5 @@ export default async function SignInPage({
         </div>
       </div>
     </div>
-  ) : (
-    redirect("/")
   );
 }
