@@ -23,7 +23,7 @@ export default async function HomePage() {
           <div className="space-y-4">
             <div className="space-y-6 pb-6">
               <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl md:leading-tight">
-                ShopWave: Because who needs savings anyway?
+                ShopWave: Because who needs savings anyway????
               </h1>
               <p className="max-w-[600px] text-gray-700 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Prepare to lose track of time and money. Enter with caution...
