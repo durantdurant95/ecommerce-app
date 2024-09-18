@@ -1,6 +1,6 @@
+import { logout } from "@/app/auth/actions";
 import { createClient } from "@/utils/supabase/server";
 import { LogOut, Settings, User } from "lucide-react";
-import { redirect } from "next/navigation";
 import { Avatar, AvatarFallback } from "./ui/avatar";
 import {
   DropdownMenu,
@@ -12,18 +12,24 @@ import {
 } from "./ui/dropdown-menu";
 
 export default async function AuthButton() {
+  // const supabase = createClient();
+  // const {
+  //   data: { user },
+  // } = await supabase.auth.getUser();
+
+  // const signOut = async () => {
+  //   "use server";
+
+  //   const supabase = createClient();
+  //   await supabase.auth.signOut();
+  //   return redirect("/auth/signin");
+  // };
+
   const supabase = createClient();
+
   const {
     data: { user },
   } = await supabase.auth.getUser();
-
-  const signOut = async () => {
-    "use server";
-
-    const supabase = createClient();
-    await supabase.auth.signOut();
-    return redirect("/auth/signin");
-  };
 
   const userName = user?.user_metadata?.full_name || user?.email || "User";
   const firstLetter = userName.charAt(0).toUpperCase();
@@ -48,16 +54,14 @@ export default async function AuthButton() {
             <Settings className="mr-2 h-4 w-4" />
             <span>Settings</span>
           </DropdownMenuItem>
-          {user && (
-            <form action={signOut}>
-              <DropdownMenuItem>
-                <button type="submit" className="flex w-full items-center">
-                  <LogOut className="mr-2 h-4 w-4" />
-                  Logout
-                </button>
-              </DropdownMenuItem>
-            </form>
-          )}
+          <form action={logout}>
+            <DropdownMenuItem>
+              <button type="submit" className="flex w-full items-center">
+                <LogOut className="mr-2 h-4 w-4" />
+                Logout
+              </button>
+            </DropdownMenuItem>
+          </form>
         </DropdownMenuContent>
       </DropdownMenu>
     )
