@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 import { createClient } from "@/utils/supabase/server";
+import { headers } from "next/headers";
 
 export async function login(formData: FormData) {
   const supabase = createClient();
@@ -49,4 +50,20 @@ export async function logout() {
   const supabase = createClient();
   await supabase.auth.signOut();
   redirect("/auth?message=You have succesfully logged out");
+}
+
+export async function signInWithGithub() {
+  const supabase = createClient();
+  const origin = headers().get("origin");
+  console.log("origin", origin);
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: "github",
+    // options: {
+    //   redirectTo: `${origin}`,
+    // },
+  });
+
+  if (data.url) {
+    redirect(data.url); // use the redirect API for your server framework
+  }
 }
