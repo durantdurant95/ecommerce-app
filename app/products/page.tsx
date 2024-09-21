@@ -16,6 +16,7 @@ export default async function ProductsPage() {
                 name={product.name}
                 price={product.price}
                 imageUrl={product.image_url}
+                id={product.id}
               />
             ))}
         </div>
@@ -32,6 +33,7 @@ export default async function ProductsPage() {
                 name={product.name}
                 price={product.price}
                 imageUrl={product.image_url}
+                id={product.id}
               />
             ))}
         </div>
@@ -47,6 +49,7 @@ export default async function ProductsPage() {
                 name={product.name}
                 price={product.price}
                 imageUrl={product.image_url}
+                id={product.id}
               />
             ))}
         </div>
@@ -62,6 +65,7 @@ export default async function ProductsPage() {
                 name={product.name}
                 price={product.price}
                 imageUrl={product.image_url}
+                id={product.id}
               />
             ))}
         </div>
@@ -77,6 +81,7 @@ export default async function ProductsPage() {
                 name={product.name}
                 price={product.price}
                 imageUrl={product.image_url}
+                id={product.id}
               />
             ))}
         </div>

@@ -27,6 +27,7 @@ export default async function SearchPage({
                 name={product.name}
                 price={product.price}
                 imageUrl={product.image_url}
+                id={product.id}
               />
             ))}
           </section>
