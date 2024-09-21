@@ -37,12 +37,9 @@ export default function ProductCard({ name, price, imageUrl, id }: Props) {
           return `${name} has been added to the cart`;
         },
         error: (err) => {
-          console.error("Error adding product to cart:", err);
           return "Error adding product to cart";
         },
       });
-    } else {
-      console.error("User is not authenticated");
     }
   };
 
