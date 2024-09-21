@@ -2,6 +2,7 @@
 import { addProductToCart } from "@/db/actions";
 import { createClient } from "@/utils/supabase/client";
 import Image from "next/image";
+import { toast } from "sonner";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardFooter, CardTitle } from "./ui/card";
 import { Skeleton } from "./ui/skeleton";
@@ -21,22 +22,30 @@ export default function ProductCard({ name, price, imageUrl, id }: Props) {
       data: { user },
       error,
     } = await supabase.auth.getUser();
+
     if (error) {
-      console.error("Error fetching user:", error);
+      toast.error("You must log in to make a purchase");
       return;
     }
 
     if (user) {
-      try {
-        await addProductToCart(user.id, id.toString());
-        console.log("Product added to cart successfully");
-      } catch (error) {
-        console.error("Error adding product to cart:", error);
-      }
+      const addToCartPromise = addProductToCart(user.id, id.toString());
+
+      toast.promise(addToCartPromise, {
+        loading: "Adding product to cart...",
+        success: () => {
+          return `${name} has been added to the cart`;
+        },
+        error: (err) => {
+          console.error("Error adding product to cart:", err);
+          return "Error adding product to cart";
+        },
+      });
     } else {
       console.error("User is not authenticated");
     }
   };
+
   return (
     <Card className="group relative overflow-hidden transition-all">
       <Button
