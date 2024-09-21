@@ -1,5 +1,5 @@
 "use client";
-import { login, signup } from "@/app/auth/actions";
+import { login, signup } from "@/db/actions";
 import { ComponentProps } from "react";
 import { useFormStatus } from "react-dom";
 import { Button } from "./ui/button";

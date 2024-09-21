@@ -72,6 +72,7 @@ export default async function HomePage() {
                     name={product.name}
                     price={product.price}
                     imageUrl={product.image_url}
+                    id={product.id}
                   />
                 </Suspense>
               </CarouselItem>

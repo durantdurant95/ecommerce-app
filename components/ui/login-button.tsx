@@ -1,6 +1,6 @@
 "use client";
 
-import { login, signup } from "@/app/auth/actions";
+import { login, signup } from "@/db/actions";
 import { Loader } from "lucide-react";
 import { type ComponentProps } from "react";
 import { useFormStatus } from "react-dom";

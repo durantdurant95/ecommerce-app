@@ -1,4 +1,4 @@
-import { logout } from "@/app/auth/actions";
+import { logout } from "@/db/actions";
 import { createClient } from "@/utils/supabase/server";
 import { LogIn, LogOut, UserPlus } from "lucide-react";
 import Link from "next/link";
