@@ -1,5 +1,6 @@
 import ProductCard from "@/components/product-card";
 import { getProductsByName } from "@/db/queries";
+import { createClient } from "@/utils/supabase/server";
 
 export default async function SearchPage({
   searchParams,
@@ -8,6 +9,11 @@ export default async function SearchPage({
     product?: string;
   };
 }) {
+  const supabase = createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   const products = await getProductsByName(searchParams?.product);
   return (
     <div className="py-8 lg:pl-80 lg:pr-4">
@@ -28,6 +34,7 @@ export default async function SearchPage({
                 price={product.price}
                 imageUrl={product.image_url}
                 id={product.id}
+                userId={user?.id}
               />
             ))}
           </section>

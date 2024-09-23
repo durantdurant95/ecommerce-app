@@ -1,7 +1,13 @@
 import ProductCard from "@/components/product-card";
 import { getAllProducts } from "@/db/queries";
+import { createClient } from "@/utils/supabase/server";
 
 export default async function ProductsPage() {
+  const supabase = createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   const products = await getAllProducts();
   return (
     <div className="flex flex-col gap-32 px-1 py-2 lg:pl-80 lg:pr-4">
@@ -17,6 +23,7 @@ export default async function ProductsPage() {
                 price={product.price}
                 imageUrl={product.image_url}
                 id={product.id}
+                userId={user?.id}
               />
             ))}
         </div>
@@ -34,6 +41,7 @@ export default async function ProductsPage() {
                 price={product.price}
                 imageUrl={product.image_url}
                 id={product.id}
+                userId={user?.id}
               />
             ))}
         </div>
@@ -50,6 +58,7 @@ export default async function ProductsPage() {
                 price={product.price}
                 imageUrl={product.image_url}
                 id={product.id}
+                userId={user?.id}
               />
             ))}
         </div>
@@ -66,6 +75,7 @@ export default async function ProductsPage() {
                 price={product.price}
                 imageUrl={product.image_url}
                 id={product.id}
+                userId={user?.id}
               />
             ))}
         </div>
@@ -82,6 +92,7 @@ export default async function ProductsPage() {
                 price={product.price}
                 imageUrl={product.image_url}
                 id={product.id}
+                userId={user?.id}
               />
             ))}
         </div>
