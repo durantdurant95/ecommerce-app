@@ -1,14 +1,92 @@
-export type Json =
-  | string
-  | number
-  | boolean
-  | null
-  | { [key: string]: Json | undefined }
-  | Json[];
-
 export type Database = {
   public: {
     Tables: {
+      cart: {
+        Row: {
+          created_at: string | null;
+          id: number;
+          updated_at: string | null;
+          user_id: string;
+        };
+        Insert: {
+          created_at?: string | null;
+          id?: never;
+          updated_at?: string | null;
+          user_id: string;
+        };
+        Update: {
+          created_at?: string | null;
+          id?: never;
+          updated_at?: string | null;
+          user_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "cart_user_id_fkey";
+            columns: ["user_id"];
+            isOneToOne: false;
+            referencedRelation: "users";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      cart_items: {
+        Row: {
+          cart_id: number;
+          category_id: number;
+          created_at: string | null;
+          description: string;
+          id: number;
+          image_url: string;
+          name: string;
+          price: number;
+          product_id: number;
+          quantity: number;
+          updated_at: string | null;
+        };
+        Insert: {
+          cart_id: number;
+          category_id: number;
+          created_at?: string | null;
+          description: string;
+          id?: never;
+          image_url: string;
+          name: string;
+          price: number;
+          product_id: number;
+          quantity: number;
+          updated_at?: string | null;
+        };
+        Update: {
+          cart_id?: number;
+          category_id?: number;
+          created_at?: string | null;
+          description?: string;
+          id?: never;
+          image_url?: string;
+          name?: string;
+          price?: number;
+          product_id?: number;
+          quantity?: number;
+          updated_at?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "cart_items_cart_id_fkey";
+            columns: ["cart_id"];
+            isOneToOne: false;
+            referencedRelation: "cart";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "cart_items_product_id_fkey";
+            columns: ["product_id"];
+            isOneToOne: false;
+            referencedRelation: "products";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       categories: {
         Row: {
           description: string;

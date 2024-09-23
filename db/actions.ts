@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 import { createClient } from "@/utils/supabase/server";
+import { getProductById } from "./queries";
 
 // This function is used to authenticate a user
 export async function login(formData: FormData) {
@@ -27,7 +28,7 @@ export async function login(formData: FormData) {
 }
 
 // Function to create a cart for a user if it doesn't exist
-async function getOrCreateCart(userId: string) {
+export async function getOrCreateCart(userId: string) {
   const supabase = createClient();
 
   // Check if the user already has a cart
@@ -104,6 +105,9 @@ export async function addProductToCart(userId: string, productId: string) {
   const supabase = createClient();
   const cart = await getOrCreateCart(userId);
 
+  // Fetch product details
+  const product = getProductById(productId);
+
   // Check if the product already exists in the cart
   const { data: existingCartItem, error: existingCartItemError } =
     await supabase
@@ -129,31 +133,23 @@ export async function addProductToCart(userId: string, productId: string) {
     }
   } else {
     // If the product does not exist, add it to the cart with quantity 1
-    const { error: insertError } = await supabase
-      .from("cart_items")
-      .insert([{ cart_id: cart.id, product_id: productId, quantity: 1 }]);
+    const { error: insertError } = await supabase.from("cart_items").insert([
+      {
+        cart_id: cart.id,
+        product_id: productId,
+        quantity: 1,
+        name: (await product).name,
+        description: (await product).description,
+        price: (await product).price,
+        category_id: (await product).category_id,
+        image_url: (await product).image_url,
+      },
+    ]);
 
     if (insertError) {
       throw new Error(insertError.message);
     }
   }
-}
-
-// Function to get cart items for a user
-export async function getCartItems(userId: string) {
-  const supabase = createClient();
-  const cart = await getOrCreateCart(userId);
-
-  const { data, error } = await supabase
-    .from("cart_items")
-    .select("*, products(*)")
-    .eq("cart_id", cart.id);
-
-  if (error) {
-    throw new Error(error.message);
-  }
-
-  return data;
 }
 
 // Function to remove a product from the cart
@@ -170,6 +166,7 @@ export async function removeProductFromCart(userId: string, productId: string) {
   if (error) {
     throw new Error(error.message);
   }
+  revalidatePath("/cart");
 }
 
 // Function to clear the cart for a user
@@ -185,4 +182,5 @@ export async function clearCart(userId: string) {
   if (error) {
     throw new Error(error.message);
   }
+  revalidatePath("/cart");
 }

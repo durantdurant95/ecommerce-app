@@ -9,11 +9,17 @@ import {
 } from "@/components/ui/carousel";
 import { Skeleton } from "@/components/ui/skeleton";
 import { getRandomProducts } from "@/db/queries";
+import { createClient } from "@/utils/supabase/server";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 
 export default async function HomePage() {
+  const supabase = createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   const products = await getRandomProducts();
   return (
     <main className="container px-4 md:px-8 lg:px-12">
@@ -73,6 +79,7 @@ export default async function HomePage() {
                     price={product.price}
                     imageUrl={product.image_url}
                     id={product.id}
+                    userId={user?.id}
                   />
                 </Suspense>
               </CarouselItem>

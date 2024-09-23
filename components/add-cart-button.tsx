@@ -1,39 +1,26 @@
 "use client";
 import { addProductToCart } from "@/db/actions";
-import { createClient } from "@/utils/supabase/client";
 import { ShoppingCart } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "./ui/button";
 
-type Props = { id: string; name: string };
+type Props = { id: string; name: string; userId: string | undefined };
 
-export default function AddCartButton({ id, name }: Props) {
-  const supabase = createClient();
-
+export default function AddCartButton({ id, name, userId }: Props) {
   const handleAddToCart = async () => {
-    const {
-      data: { user },
-      error,
-    } = await supabase.auth.getUser();
-
-    if (error) {
-      toast.error("You must log in to make a purchase");
+    if (!userId) {
+      toast.error("You must login to add a product to the cart");
       return;
     }
+    const addToCartPromise = addProductToCart(userId, id);
 
-    if (user) {
-      const addToCartPromise = addProductToCart(user.id, id);
-
-      toast.promise(addToCartPromise, {
-        loading: "Adding product to cart...",
-        success: () => {
-          return `${name} has been added to your cart`;
-        },
-        error: () => {
-          return "Error adding product to your cart";
-        },
-      });
-    }
+    toast.promise(addToCartPromise, {
+      loading: "Adding product to cart...",
+      success: `${name} added to your cart`,
+      error: () => {
+        return "Error adding product to your cart";
+      },
+    });
   };
   return (
     <Button className="items-center justify-center" onClick={handleAddToCart}>

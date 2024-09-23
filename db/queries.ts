@@ -1,5 +1,6 @@
 import { Tables } from "@/db/types";
 import { createClient } from "@/utils/supabase/server";
+import { getOrCreateCart } from "./actions";
 
 export async function getAllProducts(): Promise<Tables<"products">[]> {
   const supabase = createClient();
@@ -67,4 +68,23 @@ export async function getRandomProducts(): Promise<Tables<"products">[]> {
   }
 
   return randomProducts;
+}
+
+// Function to get cart items for a user
+export async function getCartItems(
+  userId: string,
+): Promise<Tables<"cart_items">[]> {
+  const supabase = createClient();
+  const cart = await getOrCreateCart(userId);
+
+  const { data, error } = await supabase
+    .from("cart_items")
+    .select("*, products(*)")
+    .eq("cart_id", cart.id);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return data;
 }
