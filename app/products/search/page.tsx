@@ -10,7 +10,7 @@ export default async function SearchPage({
 }) {
   const products = await getProductsByName(searchParams?.product);
   return (
-    <div className="py-8 md:pl-80 lg:pr-4">
+    <div className="py-8 lg:pl-80 lg:pr-4">
       {!searchParams?.product ? (
         <h1 className="pt-4 text-2xl font-medium">
           Start searching for products on the search bar above!
