@@ -82,11 +82,13 @@ export async function signup(formData: FormData) {
       await getOrCreateCart(user.user.id);
     } else {
       console.error("User object is null");
-      return redirect("/auth?message=Could not create cart");
+      return redirect(
+        "/auth?message=You already have an account. Please log in",
+      );
     }
   } catch (cartError) {
     console.error("Error creating cart:", cartError);
-    return redirect("/auth?message=Could not create cart");
+    return redirect("/auth?message=Could not create carttttt");
   }
 
   revalidatePath("/", "layout");
